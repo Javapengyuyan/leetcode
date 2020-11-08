@@ -4,6 +4,7 @@ import niuke.common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class jz32 {
@@ -43,22 +44,5 @@ public class jz32 {
         return abs;
     }
 
-    public int[] levelOrder(TreeNode root) {
-        if(root == null) return new int[0];
-        Queue<TreeNode> queue = new LinkedList(){{add(root);}};
-        ArrayList<Integer> ans = new ArrayList<>();
-        while (!queue.isEmpty()){
-            TreeNode node = queue.poll();
-            ans.add(node.val);
-            if(root.left != null) queue.offer(node.left);
-            if(root.right != null) queue.offer(node.right);
-
-        }
-        int[] abs = new int[ans.size()];
-        for (int i=0;i<ans.size();i++){
-            abs[i] = ans.get(i);
-        }
-        return abs;
-    }
 
 }
