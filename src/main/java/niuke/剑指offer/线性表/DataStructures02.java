@@ -1,8 +1,8 @@
-package niuke.剑指offer.链表;
+package niuke.剑指offer.线性表;
 
 import niuke.common.ListNode;
 
-public class sjjg {
+public class DataStructures02 {
     /**
      * 数据结构第二章第21题
      * 题目：给定一个链表，头节点。要求返回指定倒数第k个位置的数

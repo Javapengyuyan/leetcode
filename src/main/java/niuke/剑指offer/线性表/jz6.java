@@ -1,4 +1,4 @@
-package niuke.剑指offer.链表;
+package niuke.剑指offer.线性表;
 
 import niuke.common.ListNode;
 

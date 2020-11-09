@@ -1,4 +1,4 @@
-package niuke.剑指offer.数组;
+package niuke.剑指offer.栈和队列;
 
 /**
  * 二维递增数组，判断是否含有这个数

@@ -1,10 +1,7 @@
-package niuke.剑指offer.二叉树;
+package niuke.剑指offer.树;
 
 import niuke.common.BinaryTree;
 import niuke.common.TreeNode;
-
-import java.util.LinkedList;
-import java.util.List;
 
 public class BST {
     TreeNode root;

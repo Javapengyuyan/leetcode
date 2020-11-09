@@ -1,10 +1,9 @@
-package niuke.剑指offer.二叉树;
+package niuke.剑指offer.树;
 
 import niuke.common.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 public class jz32 {
