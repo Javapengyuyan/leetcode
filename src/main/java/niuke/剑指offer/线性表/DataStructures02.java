@@ -3,6 +3,46 @@ package niuke.剑指offer.线性表;
 import niuke.common.ListNode;
 
 public class DataStructures02 {
+
+    /**
+     * 头插法；
+     * 先取出中间节点，将头节点指针后移到下一个节点
+     * 取出的节点的下一个节点设置为头节点
+     */
+
+    /**
+     * 03 单链表，反向输出每个节点
+     * 解：①输入栈中，弹出
+     * 能用栈很自然想到递归！
+     * 解：②递归输出，先输出后面节点
+     */
+    public void revser(ListNode head){
+        if (head == null) return;
+        if (head.next != null){
+            revser(head.next);
+        }
+        System.out.println(head.val);
+    }
+
+    /**
+     * 05 带头节点的单链表就地逆置。（就地：扩展空间为O(1)）
+     *
+     * 解：链表分为头插法、尾插法两种。头部节点取下来，直接头插法。
+     * 头插法解：
+     */
+    public ListNode reverse(ListNode head,ListNode p){
+        if (head == null) return null;
+        ListNode a = head.next;
+        while (head.next != null){
+            ListNode b = a.next;
+            head.next = b;
+            a.next = head;
+            head = b;
+        }
+        return a;
+    }
+
+
     /**
      * 数据结构第二章第21题
      * 题目：给定一个链表，头节点。要求返回指定倒数第k个位置的数
