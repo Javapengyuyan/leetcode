@@ -2,8 +2,6 @@ package niuke.剑指offer.线性表;
 
 import niuke.common.ListNode;
 
-import java.util.LinkedList;
-
 public class DataStructures02 {
 
     /**
@@ -45,6 +43,14 @@ public class DataStructures02 {
         return a;
 
     }
+
+    /**
+     * 08 判断两个链表是否有公共节点
+     *
+     *  解：链表如果有公共节点，则指向同一个节点后，后续所有链表都相同。
+     *  及Y类型图
+     */
+
 
 
     /**
@@ -114,10 +120,6 @@ public class DataStructures02 {
         return i;
     }
 
-    /**
-     * 为啥提交是null
-     *
-     */
 
 
 
