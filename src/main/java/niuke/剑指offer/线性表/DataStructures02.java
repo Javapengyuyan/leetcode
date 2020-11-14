@@ -2,6 +2,8 @@ package niuke.剑指offer.线性表;
 
 import niuke.common.ListNode;
 
+import java.util.LinkedList;
+
 public class DataStructures02 {
 
     /**
@@ -30,16 +32,18 @@ public class DataStructures02 {
      * 解：链表分为头插法、尾插法两种。头部节点取下来，直接头插法。
      * 头插法解：
      */
-    public ListNode reverse(ListNode head,ListNode p){
+    public ListNode reverse(ListNode head){
         if (head == null) return null;
         ListNode a = head.next;
-        while (head.next != null){
+        head.next = null;
+        while (a.next != null){
             ListNode b = a.next;
-            head.next = b;
-            a.next = head;
-            head = b;
+            a.next = head.next;
+            head.next = a;
+            a = b;
         }
         return a;
+
     }
 
 
