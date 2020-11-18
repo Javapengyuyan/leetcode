@@ -2,7 +2,7 @@ package niuke.剑指offer.线性表;
 
 import niuke.common.ListNode;
 
-public class DataStructures02 {
+public class DataStructure02 {
 
     /**
      * 头插法；
