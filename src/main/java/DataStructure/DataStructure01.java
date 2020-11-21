@@ -1,4 +1,4 @@
-package niuke.剑指offer.线性表;
+package DataStructure;
 
 import niuke.common.ListNode;
 
