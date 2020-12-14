@@ -15,9 +15,9 @@ class LeetcodeApplicationTests {
      * @param args
      */
     public static void main(String[] args) {
-        String s = "ｚｅｔｔａｂｙｔｅ";
+        String s = "为解决 ＲＯＳ中的性能 问题，社区在２０１５年推 出 ＲＯＳ２．０［７１］，其 核 心 为 引 入数据分发服务（ｄａｔａｄｉｓｔｒｉｂｕｔｉｏｎｓｅｒｖｉｃｅ，ＤＤＳ）， 解决 ＲＯＳ对 主 节 点（ｍａｓｔｅｒｎｏｄｅ）性 能 依 赖 问 题，同时 ＤＤＳ提供共享内存机制提高节点间的 通 信 效 率";
         s = s.replaceAll(" ","");
-        System.out.println(s);
+        //System.out.println(s);
         System.out.println( convertMoString(s).toLowerCase() );
     }
 
@@ -60,7 +60,7 @@ class LeetcodeApplicationTests {
             sReturn = sReturn.replace('ｈ', 'H');
             sReturn = sReturn.replace('ｉ', 'I');
             sReturn = sReturn.replace('J', 'J');
-            sReturn = sReturn.replace('K', 'K');
+            sReturn = sReturn.replace('ｋ', 'K');
             sReturn = sReturn.replace('ｌ', 'L');
             sReturn = sReturn.replace('ｍ', 'M');
             sReturn = sReturn.replace('ｎ', 'N');
