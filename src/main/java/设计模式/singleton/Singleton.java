@@ -5,7 +5,7 @@ package 设计模式.singleton;
  * 目的：应用中只有一个类，防止频繁创建
  * 好处：
  * 类型：懒汉模式、饿汉模式
- * 应用场景：
+ * 应用场景：线程池、对话框、打印机
  *
  * 创建步骤：
  * 1、new一个不可变的对象
@@ -16,6 +16,7 @@ package 设计模式.singleton;
  */
 public class Singleton {
 
+    //饿汉模式
     private final static Singleton singleton = new Singleton();
 
     private Singleton(){}

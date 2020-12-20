@@ -1,5 +1,8 @@
 package 设计模式.singleton;
 
+/**
+ * 懒汉模式（线程安全的）
+ */
 public class Hunger02 {
 
     //为什么要加 volatile 关键字
