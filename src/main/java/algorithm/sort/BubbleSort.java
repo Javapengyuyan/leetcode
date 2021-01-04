@@ -4,8 +4,8 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         int[] ints = new int[]{3,5,1,8,2};
-        //ints = sort(ints);
-        ints = leftSort(ints);
+        ints = sort(ints);
+        //ints = leftSort(ints);
         System.out.println(ints);
     }
 
