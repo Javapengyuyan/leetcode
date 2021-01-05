@@ -1,4 +1,4 @@
-package niuke.美团;
+package niuke.meiTuan;
 
 import java.util.HashSet;
 import java.util.Scanner;

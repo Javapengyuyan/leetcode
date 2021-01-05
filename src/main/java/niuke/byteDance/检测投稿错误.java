@@ -1,4 +1,4 @@
-package niuke.头条;
+package niuke.byteDance;
 
 import java.util.ArrayDeque;
 import java.util.Scanner;
