@@ -1,4 +1,4 @@
-package 设计模式.singleton;
+package designPatterns.singleton;
 
 /**
  * 懒汉模式

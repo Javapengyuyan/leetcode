@@ -1,4 +1,4 @@
-package 设计模式.singleton;
+package designPatterns.singleton;
 
 /**
  * 解释：某一个类的对象在内存中的对象只有一个

@@ -1,4 +1,4 @@
-package 设计模式;
+package designPatterns;
 
 public class TestSignle {
 
