@@ -8,7 +8,9 @@ public class Bio {
     public static void main(String[] args) {
 
         /**
-         * 原生socket
+         * 原生socket,service和client两个沟通
+         *
+         * bio复制信息的时候，如果复制没有完成被调用也是阻塞的
          */
         try {
             ServerSocket serverSocket= new ServerSocket(8080);
