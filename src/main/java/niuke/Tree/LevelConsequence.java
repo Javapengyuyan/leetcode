@@ -3,7 +3,10 @@ package niuke.Tree;
 import niuke.common.TreeNode;
 
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class LevelConsequence {
@@ -17,6 +20,7 @@ public class LevelConsequence {
         String line = scanner.nextLine();*/
         TreeNode root = new TreeNode(9);
         node(root);
+        Hashtable hashtable = new Hashtable();
 
 
 
