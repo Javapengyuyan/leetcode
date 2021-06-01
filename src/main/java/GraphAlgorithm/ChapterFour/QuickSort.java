@@ -10,11 +10,19 @@ public class QuickSort {
      */
     public static void main(String[] args) {
         int[] ints = {8,3,6,2,5,1,9};
+
+
+        int i=0,j=ints.length-1;
+        quickSort(ints,i,j);
+        //System.out.println(ints);
+
+    }
+
+    public static void quickSort(int[] ints,int i,int j){
         //随机选择一个主元
         Random random = new Random();
         Integer x = random.nextInt(ints.length -1);
-        int i=0,j=ints.length-1;
-        while (i>=j){
+        while (i<=j){
             if (ints[i]>ints[x]){
                 swap(ints,i,x);
             }
@@ -23,10 +31,9 @@ public class QuickSort {
                 swap(ints,j,x);
             }
             j--;
-
         }
-
-
+        quickSort(ints,i,x);
+        quickSort(ints,x,j-1);
     }
 
     public static void swap(int[] ints,int i,int j){
