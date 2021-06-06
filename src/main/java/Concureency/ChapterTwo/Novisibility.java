@@ -1,4 +1,4 @@
-package ConcureentProgramming.ChapterThree;
+package Concureency.ChapterTwo;
 
 public class Novisibility {
 
