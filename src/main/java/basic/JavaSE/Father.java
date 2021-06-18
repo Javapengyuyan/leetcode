@@ -1,4 +1,4 @@
-package JavaSE;
+package basic.JavaSE;
 
 public class Father {
 

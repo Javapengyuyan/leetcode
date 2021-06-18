@@ -1,6 +1,7 @@
-package JavaSE.Chapter;
+package basic.JavaSE.Chapter;
 
-import JavaSE.Father;
+
+import basic.JavaSE.Father;
 
 /**
  *  核心卷一：5.1.10
