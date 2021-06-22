@@ -1,4 +1,6 @@
-package basic.JavaSE;
+package basic.javaSE.reflect;
+
+import basic.javaSE.Father;
 
 public class Reflect {
 
@@ -27,7 +29,7 @@ public class Reflect {
     public static void main(String[] args) {
         try {
             //1、
-            Class f1 = Class.forName("basic.JavaSE.Father");
+            Class f1 = Class.forName("basic.javaSE.Father");
             System.out.println(f1);
             //2、
             Class f2 = Father.class;

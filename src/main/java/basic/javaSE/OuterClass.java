@@ -1,4 +1,4 @@
-package basic.JavaSE;
+package basic.javaSE;
 
 public class OuterClass {
 
