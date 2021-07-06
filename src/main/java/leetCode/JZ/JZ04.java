@@ -1,4 +1,4 @@
-package leetCode.JianZhi;
+package leetCode.JZ;
 
 public class JZ04 {
 

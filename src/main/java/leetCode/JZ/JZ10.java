@@ -1,4 +1,4 @@
-package leetCode.JianZhi;
+package leetCode.JZ;
 
 public class JZ10 {
     public static void main(String[] args) {
