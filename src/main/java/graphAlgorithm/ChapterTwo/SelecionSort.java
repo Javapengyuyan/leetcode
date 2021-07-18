@@ -1,4 +1,4 @@
-package GraphAlgorithm.ChapterTwo;
+package graphAlgorithm.ChapterTwo;
 
 public class SelecionSort {
 

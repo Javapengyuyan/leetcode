@@ -1,4 +1,4 @@
-package GraphAlgorithm.ChapterOne;
+package graphAlgorithm.ChapterOne;
 
 public class BinarySearch {
 

@@ -1,4 +1,4 @@
-package GraphAlgorithm.ChapterFour;
+package graphAlgorithm.ChapterFour;
 
 import java.util.Random;
 

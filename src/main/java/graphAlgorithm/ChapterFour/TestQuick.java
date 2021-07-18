@@ -1,4 +1,4 @@
-package GraphAlgorithm.ChapterFour;
+package graphAlgorithm.ChapterFour;
 
 public class TestQuick {
 

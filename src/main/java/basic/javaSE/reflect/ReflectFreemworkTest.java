@@ -1,9 +1,5 @@
 package basic.javaSE.reflect;
 
-import basic.javaSE.chapter.Person;
-
-import javax.sound.midi.Instrument;
-import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.util.Properties;

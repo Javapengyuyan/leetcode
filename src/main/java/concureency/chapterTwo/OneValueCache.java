@@ -1,4 +1,4 @@
-package Concureency.ChapterTwo;
+package concureency.chapterTwo;
 
 import java.math.BigInteger;
 import java.util.Arrays;

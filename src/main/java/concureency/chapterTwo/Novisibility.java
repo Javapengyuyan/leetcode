@@ -1,4 +1,4 @@
-package concureency.chapterTwo;
+package Concureency.ChapterTwo;
 
 public class Novisibility {
 
