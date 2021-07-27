@@ -1,4 +1,4 @@
-package leetCode.Tree;
+package leetCode.tree;
 
 import niuke.common.TreeNode;
 
