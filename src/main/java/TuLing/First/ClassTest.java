@@ -34,4 +34,6 @@ public class ClassTest {
 
         return null;
     }
+
+    public native void sayHello();
 }

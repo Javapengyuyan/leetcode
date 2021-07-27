@@ -1,10 +1,8 @@
-package Concureency.ChapterEight;
+package concureency.chapterEight;
 
-import java.util.concurrent.LinkedBlockingDeque;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
-public class Semaphore {
+public class BoundedExecutor {
 
     public void callerRuns(){
         ThreadPoolExecutor executor = new ThreadPoolExecutor
@@ -14,7 +12,33 @@ public class Semaphore {
 
     }
 
-    
+    //8-4
+    private final Executor exec;
+    private final Semaphore semaphore;
+    public BoundedExecutor(Executor exec,int bound){
+        this.exec = exec;
+        this.semaphore = new Semaphore(bound);
+    }
+
+    public void submitTask(final Runnable command) throws InterruptedException {
+        semaphore.acquire();
+        exec.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    command.run();
+                }finally {
+                    semaphore.release();
+                }
+
+            }
+        });
+
+    }
+
+
+
+
 
 
 }
