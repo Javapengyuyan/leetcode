@@ -7,7 +7,8 @@ public class Sort {
     public static void main(String[] args) {
         int[] ints = {3,5,1,9,7,2,8};
         System.out.println(ints);
-        System.out.println(insertSort(ints));
+        //System.out.println(insertSort(ints));
+        quickSort(ints);
 
     }
 
@@ -45,6 +46,41 @@ public class Sort {
      * 交换排序:冒泡、快排
      * 时间复杂度，空间复杂度
      */
+    static public int[] quickSort(int[] ints){
+        int left=0,right=ints.length-1;
+        quick(ints,left,right);
+        return ints;
+    }
+
+    //递归操作
+    static public void quick(int[] ints,int left,int right){
+
+        if (left< right){
+            int pivot = quickSort(ints, left, right);
+            quick(ints,left,pivot-1);
+            quick(ints,pivot+1,right);
+        }
+    }
+    //排序
+    static public int quickSort(int[] ints,int left,int right){
+        int pivot = left;
+        while (left<right){
+            int num = ints[left];
+            while (ints[right] > num && right>left){
+                right--;
+            }
+            while (num >= ints[left] && left<right){
+                left++;
+            }
+            if (left == right){
+                break;
+            }
+            swap(ints,left,right);
+        }
+        //交换标准值
+        swap(ints,pivot,left);
+        return left;
+    }
 
 
 
@@ -54,7 +90,8 @@ public class Sort {
      */
 
     /**
-     * 归并排序:时间复杂度，空间复杂度
+     * 归并排序: 分治思想
+     * 时间复杂度，空间复杂度
      */
 
 
