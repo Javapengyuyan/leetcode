@@ -1,4 +1,4 @@
-package basic.javaSE.genericT.demo07;
+package basic.javaSE.genericT.demo7;
 
 /**
  * @author: long
