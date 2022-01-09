@@ -1,31 +1,31 @@
-package basic.io.BIO.four;
+package basic.io.bio.three;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
 /**
  * @author: long
- * @create: 2022-01-04 13:42
+ * @create: 2022-01-02 14:23
  * @Description
  **/
 
 public class Client {
+
     public static void main(String[] args) {
         try {
             Socket socket = new Socket("127.0.0.1",9999);
-            PrintStream printStream = new PrintStream(socket.getOutputStream());
+            OutputStream outputStream = socket.getOutputStream();
+            PrintStream printStream = new PrintStream(outputStream);
             Scanner scanner = new Scanner(System.in);
             while (true){
                 System.out.print("请说：");
-                String line = scanner.nextLine();
-                printStream.println(line);
-                //这个是关闭连接
-                //printStream.close();
+                String msg = scanner.nextLine();
+                printStream.println(msg);
                 printStream.flush();
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }

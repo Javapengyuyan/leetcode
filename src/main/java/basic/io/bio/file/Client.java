@@ -1,4 +1,4 @@
-package basic.io.BIO.file;
+package basic.io.bio.file;
 
 import java.io.DataOutputStream;
 import java.io.FileInputStream;

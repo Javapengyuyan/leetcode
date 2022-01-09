@@ -1,4 +1,4 @@
-package basic.io.BIO.three;
+package basic.io.bio.three;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package basic.io.BIO.one;
+package basic.io.bio.two;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.net.Socket;
 /**
  * @author: long
  * @create: 2022-01-02 14:23
- * @Description
+ * @Description 实现客户端与服务端多发多收
  **/
 
 public class Server {
@@ -18,16 +18,15 @@ public class Server {
     public static void main(String[] args) {
         try {
             System.out.println("服务端启动");
-            //定义一个serverSocket连接
             ServerSocket socket = new ServerSocket(9999);
             //监听客户端连接
+            //由于只接受了一个请求，所以只能连接一个客户端
             Socket accept = socket.accept();
-            //从socket管道中得到字节输入流对象
             InputStream inputStream = accept.getInputStream();
             //字节输入流包装成缓冲字符输入流
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
             String msg;
-            if ( (msg =bufferedReader.readLine()) != null){
+            while ( (msg =bufferedReader.readLine()) != null){
                 System.out.println("服务端收到信息:"+ msg);
             }
 

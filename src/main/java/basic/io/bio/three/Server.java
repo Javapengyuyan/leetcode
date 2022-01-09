@@ -1,4 +1,4 @@
-package basic.io.BIO.three;
+package basic.io.bio.three;
 
 import java.io.IOException;
 import java.net.ServerSocket;
