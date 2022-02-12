@@ -1,4 +1,4 @@
-package basic.thread;
+package basic.thread.demo01;
 
 /**
  * @author: long
