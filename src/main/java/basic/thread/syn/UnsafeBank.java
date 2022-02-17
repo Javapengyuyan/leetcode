@@ -12,8 +12,9 @@ public class UnsafeBank {
         Account account = new Account(500, "结婚基金");
         Drawing drawing = new Drawing(account, 300, "男主");
         Drawing girlDrawing = new Drawing(account, 500, "女主");
-        drawing.start();
+
         girlDrawing.start();
+        drawing.start();
 
     }
 
@@ -45,23 +46,26 @@ class Drawing extends Thread{
 
     @Override
     public void run() {
-        if (drawingMoney>account.money){
-            System.out.println(Thread.currentThread().getName()+"卡内余额不足");
-            return;
+        synchronized (account){
+            if (drawingMoney>account.money){
+                System.out.println(Thread.currentThread().getName()+"卡内余额不足");
+                return;
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            //余额
+            account.money = account.money-drawingMoney;
+            //手里的钱
+            nowMoney = nowMoney + drawingMoney;
+            //System.out.println(account.name+"现在有"+nowMoney);
+            System.out.println("结婚基金余额:"+account.money);
+            //Thread.currentThread().getName();
+            System.out.println(this.getName()+"手里的钱"+nowMoney);
         }
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        //余额
-        account.money = account.money-drawingMoney;
-        //手里的钱
-        nowMoney = nowMoney + drawingMoney;
-        //System.out.println(account.name+"现在有"+nowMoney);
-        System.out.println("结婚基金余额:"+account.money);
-        //Thread.currentThread().getName();
-        System.out.println(this.getName()+"手里的钱"+nowMoney);
+
 
     }
 }

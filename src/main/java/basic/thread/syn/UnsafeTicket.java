@@ -32,7 +32,7 @@ class BuyTicket implements Runnable{
 
     private void buy(){
         //是否有票
-        if (ticketNum<0){
+        if (ticketNum<=0){
             flag = false;
             return;
         }
