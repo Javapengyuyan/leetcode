@@ -37,6 +37,7 @@ public class CglibProxy implements MethodInterceptor {
      */
     @Override
     public Object intercept(Object proxy, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+        System.out.println("my--intercept调用");
         MyAspect myAspect = new MyAspect();
         myAspect.check_permission();
         //调用原始方法

@@ -12,4 +12,9 @@ public class ProxyServiceImpl implements UserService{
         System.out.println("虚假的送花人");
         return service.send(name);
     }
+
+    @Override
+    public void test() {
+
+    }
 }

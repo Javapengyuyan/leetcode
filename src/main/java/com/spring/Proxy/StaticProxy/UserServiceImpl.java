@@ -6,4 +6,9 @@ public class UserServiceImpl implements UserService{
         System.out.println("真实得送花人");
         return name;
     }
+
+    @Override
+    public void test() {
+
+    }
 }
