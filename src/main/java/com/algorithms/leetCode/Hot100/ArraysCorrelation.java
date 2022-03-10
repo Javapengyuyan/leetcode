@@ -10,8 +10,12 @@ public class ArraysCorrelation {
      * @param args
      */
     public static void main(String[] args) {
-        int[] nums1 = {}, nums2 = {-1,0,1,2,-1,-4};
-        System.out.println(threeSum(nums2));
+        /*int[] nums1 = {}, nums2 = {-1,0,1,2,-1,-4};
+        System.out.println(threeSum(nums2));*/
+        String s = "babad";
+        String s1 = longestPalindrome2(s);
+        System.out.println(s1);
+
     }
 
     /**
@@ -75,13 +79,19 @@ public class ArraysCorrelation {
 
     /**
      *  最长回文子串
-     *  使用动态规划，遍历求极值，根据状态转移方程写出代码
+     *  法一：使用中心扩展
+     *  注意：奇数和偶数的两种情况
      *
-     * @param s
+     *  法二：使用动态规划，遍历求极值，根据状态转移方程写出代码
+     *  长度小于2位的相等为ture，长度大于2的则看下一层，
+     *
+     * @param s 字符串
      * @return
      */
-    public String longestPalindrome(String s) {
-        int length = 1;
+    //中心扩展法
+    static public String longestPalindrome(String s) {
+        int left = 0;
+        int right = 0;
         char[] chars = s.toCharArray();
         if (s.length()<3){
             if (chars[0] == chars[s.length()-1]){
@@ -90,21 +100,69 @@ public class ArraysCorrelation {
                 return String.valueOf(chars[0]);
             }
         }
-
+        //这么要注意，不能默认为奇数回文，还有可能是偶数，不然会少了一半
         for (int i=0;i<s.length();i++){
-            for (int j =i;j<s.length();j++){
-
-
-                if (chars[i-1] == chars[j+1]){
-
-                }
-
+            int palindrom = palindrom(chars, i, i);
+            int palindrom2 = palindrom(chars, i, i+1);
+            int max = Math.max(palindrom, palindrom2);
+            if (max>right-left){
+                left = i-(max-1)/2;
+                right = i+max/2;
             }
-
         }
+        return s.substring(left,right+1);
+    }
 
+    //计算的为向外扩展的数量
+    static public int palindrom(char[] chars,int start,int end){
+        while (start>-1 && end <chars.length &&  chars[start]==chars[end]){
+            --start;
+            ++end;
+        }
+        return end-start-1;//注意返回值要减一，因为如果是偶数没有扩展应该为0，所以要减一
+    }
 
-        return null;
+    //动态规划
+    static public String longestPalindrome2(String s) {
+        if (s.length()<2){
+            return s;
+        }
+        int length = s.length();
+        boolean[][] booleans = new boolean[length][length];
+        // java中boolean默认false，因此要赋值初始化
+        for (int i=0;i<length;i++){
+            booleans[i][i] = true;
+        }
+        char[] chars = s.toCharArray();
+        int maxLen = 0;
+        int start = 0;
+        //动态规划用空间换时间，进行状态转移方程
+        for (int j = 0; j < length; j++) {
+            for (int i =0; i < j; i++) {
+                if ( chars[i]!= chars[j]){
+                    booleans[i][j] = false;
+                }else {
+                    /**
+                     * 边界条件：判断是否需要检查子串是否为回文。
+                     * 去除j、i本身，有：j-1-(i+1)+1<2
+                     * 转化为：j-i<3
+                     */
+                    if (j-i<3){
+                        booleans[i][j] = true;
+                    }else {
+                        booleans[i][j] = booleans[i-1][j+1];
+                    }
+                }
+                /**
+                 * 二维数组为ture表示对应i、j节点为回文数，记录回文长度
+                 */
+                if (booleans[i][j] && j-i+1>maxLen){
+                    maxLen = j-i+1;
+                    start = i;
+                }
+            }
+        }
+        return s.substring(start,start+maxLen);
     }
 
 
