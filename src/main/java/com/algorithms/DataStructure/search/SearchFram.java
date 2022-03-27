@@ -28,7 +28,6 @@ public class SearchFram {
         //int i = testKMP(s1, s2);
         char[] chars = s1.toCharArray();
         //GetNext(chars,new int[s1.length()]);
-        getNext(chars,new int[s1.length()]);
 
     }
 
@@ -81,66 +80,6 @@ public class SearchFram {
      * 比较指针不用回溯
      *
      */
-
-    //前后：A=B+C，则B是A的前缀，A=C+B，B是A的后缀。
-    public static int testKMP(String[] str, String[] pattner){
-        int i =0;
-        int j = 0;
-        while (i<=j){
-            if (str[i] == pattner[j]){
-                i++;j++;
-            }else {
-                //找最长相同前后缀·
-                i++;
-            }
-        }
-
-
-        return -1;
-    }
-
-    /**
-     * 重点：每次比较的位置=最长公共前缀长度+1
-     * @param ch 模式串
-     * @param length ch长度
-     * @param next next数组
-     */
-    public static void GetNext(char ch[],int length, int next[]){
-        int i=1,j=0;
-        next[1] =0;
-        while (i<=length){
-            if (j==0 || ch[i]==ch[j]){
-                next[++i]=++j;
-            }else {
-                j=next[j];
-            }
-        }
-    }
-
-    public static void getNext(char[] pattern,int[] next){
-        next[0] = -1;
-        int i =0,j=-1;
-        /**
-         * 看门牌算法，后面查看前面k依次往前递推，next[j+1]可能最大值为next[next[j+1]]+1
-         * 这里注意while判断条件，如果是pattern.length，
-         * 如果后两个都相同会出现下标越界。
-         */
-        while (i<pattern.length-1){
-            if (j==-1){
-                i++;j++;
-            }else if (pattern[i] ==pattern[j]){
-                ++i;++j;
-                next[i] = j;
-            }else {
-                j = next[j];
-            }
-        }
-
-    }
-
-
-
-
 
 
 
