@@ -1,4 +1,4 @@
-package com.javaBasic.thread.state;
+package com.javaBasic.concureent.thread.state;
 
 /**
  * @author: long

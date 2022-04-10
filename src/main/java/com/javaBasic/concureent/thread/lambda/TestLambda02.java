@@ -1,4 +1,4 @@
-package com.javaBasic.thread.lambda;
+package com.javaBasic.concureent.thread.lambda;
 
 /**
  * @author: long
@@ -40,6 +40,11 @@ public class TestLambda02 {
          * 2、多个参数，去掉参数类型同时去掉
          *
          */
+        System.out.println("======================================");
+        like02 = (String string)->{
+            System.out.println("自己测试lambda"+string);
+        };
+        like02.lambda("接口传入参数");
 
     }
 

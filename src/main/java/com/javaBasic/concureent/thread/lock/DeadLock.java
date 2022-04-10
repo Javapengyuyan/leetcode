@@ -1,4 +1,4 @@
-package com.javaBasic.thread.lock;
+package com.javaBasic.concureent.thread.lock;
 
 /**
  * @author: long

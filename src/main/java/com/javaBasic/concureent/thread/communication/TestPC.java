@@ -1,4 +1,4 @@
-package com.javaBasic.thread.communication;
+package com.javaBasic.concureent.thread.communication;
 
 /**
  * @author: long

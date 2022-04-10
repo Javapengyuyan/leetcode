@@ -1,4 +1,4 @@
-package com.javaBasic.thread.syn;
+package com.javaBasic.concureent.thread.syn;
 
 /**
  * @author: long

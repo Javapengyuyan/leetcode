@@ -1,4 +1,4 @@
-package com.javaBasic.thread.demo01;
+package com.javaBasic.concureent.thread.demo01;
 
 /**
  * @author: long

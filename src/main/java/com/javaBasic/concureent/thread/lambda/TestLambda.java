@@ -1,4 +1,4 @@
-package com.javaBasic.thread.lambda;
+package com.javaBasic.concureent.thread.lambda;
 
 /**
  * @author: long

@@ -1,4 +1,4 @@
-package com.javaBasic.thread.demo02;
+package com.javaBasic.concureent.thread.demo02;
 
 import org.apache.commons.io.FileUtils;
 
