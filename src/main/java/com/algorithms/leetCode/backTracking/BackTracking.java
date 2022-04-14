@@ -7,7 +7,7 @@ import java.util.List;
 public class BackTracking {
 
     public static void main(String[] args) {
-        int[] ints = new int[]{1,0};
+        int[] ints = new int[]{1,0,2};
         backTrack(new LinkedList(),ints);
         System.out.println(reslut);
     }
