@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  *
  **/
 
-public class Sync {
+public class SyncClassAndInstanceDiffer {
 
     public static void main(String[] args) {
         method4();
@@ -27,7 +27,7 @@ public class Sync {
      */
     static public void method1(){
         //只创建一个
-        Sync sync = new Sync();
+        SyncClassAndInstanceDiffer sync = new SyncClassAndInstanceDiffer();
         for (int i = 0; i < 3; i++) {
             new Thread(new Runnable() {
                 @Override
@@ -59,7 +59,7 @@ public class Sync {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Sync sync = new Sync();
+                    SyncClassAndInstanceDiffer sync = new SyncClassAndInstanceDiffer();
                     sync.thisLock();
                 }
             }).start();
@@ -73,7 +73,7 @@ public class Sync {
      * 锁是共享的
      */
     public static void method3(){
-        Sync sync = new Sync();
+        SyncClassAndInstanceDiffer sync = new SyncClassAndInstanceDiffer();
         for (int i = 0; i < 3; i++) {
             new Thread(new Runnable() {
                 @Override
@@ -86,7 +86,7 @@ public class Sync {
     }
     
     public void classLock(){
-        synchronized (Sync.class){
+        synchronized (SyncClassAndInstanceDiffer.class){
             try {
                 System.out.println(Thread.currentThread().getName()+"线程,创建日期:"+new Date());
                 TimeUnit.SECONDS.sleep(1);
@@ -107,7 +107,7 @@ public class Sync {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    Sync sync = new Sync();
+                    SyncClassAndInstanceDiffer sync = new SyncClassAndInstanceDiffer();
                     sync.classLock();
                 }
             }).start();
