@@ -35,6 +35,29 @@ public class TestJoin implements Runnable {
 
         }
 
+        /**
+         * 2、有参数join，有时间限制等待
+         * 入参等待时间和线程休眠时间，两者会取最小值。
+         */
+        try {
+            Thread thread1 = new Thread(() -> {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
+            long strat = System.currentTimeMillis();
+            thread1.start();
+            System.out.println("线程启动");
+            thread1.join(5000);
+            long end = System.currentTimeMillis();
+            System.out.println("结束："+ (end-strat)/1000 );
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
