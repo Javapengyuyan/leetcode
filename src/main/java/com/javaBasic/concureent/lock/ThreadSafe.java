@@ -1,14 +1,12 @@
 package com.javaBasic.concureent.lock;
 
-import TuLing.First.A;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author: long
  * @create: 2022-05-05 16:16
- * @Description
+ * @Description  判断是否为线程安全的
  *
  * 1、局部变量线程私有，属于线程安全
  * 2、成员变量需要考虑线程安全
