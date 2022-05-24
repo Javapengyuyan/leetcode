@@ -1,4 +1,4 @@
-package com.algorithms.DataStructure;
+package com.algorithms.DataStructure.homework;
 
 import com.algorithms.niuke.common.ListNode;
 

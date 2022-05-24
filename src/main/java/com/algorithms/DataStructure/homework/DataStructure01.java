@@ -1,8 +1,9 @@
-package com.algorithms.DataStructure;
+package com.algorithms.DataStructure.homework;
 
 import com.algorithms.niuke.common.ListNode;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class DataStructure01 {
@@ -45,49 +46,86 @@ public class DataStructure01 {
      * 05 从顺序表中删除其值在给定值s,t之间的所有元素（s<t）不合理返回null
      *
      * 解：顺序表，移除特定数值，其它位置上的值往前移
+     * 法一：iterator序列剔除
+     * 法二：前移位置数
      */
+    public List remove(List<Integer> list,int s,int t){
+        if (t<s || list.size() < 1 )return null;
+        Iterator<Integer> iterator = list.iterator();
+        while (iterator.hasNext()){
+            Integer integer = iterator.next();
+            if (integer > s && integer < t){
+                iterator.remove();
+            }
+        }
+        return list;
+    }
+
+    //知道节点数，还得是list，可以记录一次前移x个节点，但是list不好剔除
     public ListNode remove(ListNode listNode, int s, int t){
         if (t<s || listNode == null )return null;
+        //假设list长度为length
+        int length = 10;
         int k = 0;
-        while (listNode.next != null){
+        for (int i = 0; i < length; i++) {
             //剔除listnode节点，并按指定
             if (listNode.val>s && listNode.val <t){
                 k++;
                 listNode = listNode.next;
+            }else {
+                //前移k个位置
+                //listNode[i-k]=listNode[i];
             }
         }
         return listNode;
     }
 
-    public List remove(List<Integer> list,int s,int t){
-        if (t<s || list.size() < 1 )return null;
-        int k = 0;
-        for (int i = 0;i<list.size();i++){
-            Integer integer = list.get(i);
-            if (integer > s && integer < t){
-                k++;
-                if (list.size()>= (k+i-1)){
-                    list.set(k,list.get(k+i-1));
-                }
-            }
-
-        }
-        return list;
-    }
 
     /**
      * 06从有序顺序表中删除所有重复值
      */
+    public void removeDuplicat(List<Integer> list){
+        //倒叙删除重新赋值
+
+        //法二：直接插入思想，一个指针记录
+
+        //无序用hash，有序用遍历指针
+
+    }
 
     /**
      * 07 将两个有序顺序表合并成一个
+     *  典型算法，需要牢固掌握
      */
+    public List mergeList(List<Integer> l1,List<Integer> l2){
+        int i =0,j=0;
+        List newList = new ArrayList(l1.size()+l2.size());
+        while (i<l1.size() && j<l2.size()){
+            if (l1.get(i) < l2.get(j)){
+                newList.set(i+j,l1.get(i));
+                i++;
+            }else {
+                newList.set(i+j,l2.get(j));
+                j++;
+            }
+        }
+        while (i<l1.size()){
+            newList.set(i+j,l1.get(i));
+            i++;
+        }
+        while (j<l2.size()){
+            newList.set(i+j,l2.get(j));
+            j++;
+        }
+        return newList;
+    }
 
 
     /**
      * 08一维数组中依次存放着两个线性表(a1.a2.a...an)和(b1.b2...bm)，将两个数组互换
      *
      * 解：类似于矩阵求逆矩阵，然后依次单独求逆矩阵
+     * 相当于ab求ba。先求ab逆序得b逆a逆，再求b逆序，再求a逆序，最后得ba
      */
     public static int[] exchange(int[] exchange ,int n,int m){
         if (exchange == null)return null;

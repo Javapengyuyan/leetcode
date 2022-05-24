@@ -1,4 +1,4 @@
-package com.algorithms.algorithm.BackTrcking;
+package com.algorithms.leetCode.backTracking;
 
 import java.util.Scanner;
 

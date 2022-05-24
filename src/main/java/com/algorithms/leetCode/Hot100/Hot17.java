@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author: long
@@ -15,8 +16,16 @@ import java.util.Map;
 public class Hot17 {
 
     public static void main(String[] args) {
-        List<String> list = letterCombinations("23");
-        System.out.println(list);
+        HashMap hashMap = new HashMap();
+        hashMap.put(null,null);
+        Object o1 = hashMap.get(null);
+        System.out.println(o1);
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+        concurrentHashMap.put(1,1);
+        Object o = concurrentHashMap.get(null);
+        System.out.println(o);
+        //List<String> list = letterCombinations("23");
+        //System.out.println(list);
     }
 
     static public List<String> letterCombinations(String digits) {
