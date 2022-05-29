@@ -14,7 +14,7 @@ public class Reflect {
      */
 
     /**
-     *  获取class对象的三种方法：
+     *  获取Class对象的三种方法：
      *
      *  1、将字节码文件加载进内存
      *   多用于配置文件中，将类名定义在配置文件中
@@ -36,6 +36,7 @@ public class Reflect {
             System.out.println(f2);
 
             Father father = new Father();
+            //3
             Class f3 = father.getClass();
             System.out.println(f3);
             System.out.println(f1 == f2);
