@@ -1,6 +1,6 @@
-package concureency.chapterTen;
+package com.javaBasic.concureent.concureencyPratice.chapterTen;
 
-import concureency.common.Account;
+import com.javaBasic.concureent.concureencyPratice.common.Account;
 
 import javax.naming.InsufficientResourcesException;
 

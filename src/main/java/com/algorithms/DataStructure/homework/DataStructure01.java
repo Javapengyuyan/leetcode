@@ -9,13 +9,13 @@ import java.util.List;
 public class DataStructure01 {
 
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<Integer>();
+        List<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(3);
         list.add(4);
         list.add(9);
         list.add(17);
-        List<Integer> list2 = new ArrayList<Integer>();
+        List<Integer> list2 = new ArrayList<>();
         list2.add(2);
         list2.add(6);
         list2.add(6);
