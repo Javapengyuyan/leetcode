@@ -1,4 +1,4 @@
-package concureency.chapterThree;
+package com.javaBasic.concureent.concureencyPratice.chapterThree;
 
 import java.math.BigInteger;
 

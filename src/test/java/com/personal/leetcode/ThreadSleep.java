@@ -1,5 +1,12 @@
 package com.personal.leetcode;
 
+import com.ApplicationStartup;
+import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.web.WebAppConfiguration;
+
+@WebAppConfiguration
+@SpringBootTest(classes = ApplicationStartup.class)
 public class ThreadSleep extends Thread{
 
     public void run(){
@@ -18,8 +25,10 @@ public class ThreadSleep extends Thread{
         Thread thread = new ThreadSleep();
         thread.start();
 
+    }
 
-
+    @Test
+    public void test(){
 
     }
 

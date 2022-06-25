@@ -1,4 +1,4 @@
-package concureency.chapterTwo;
+package com.javaBasic.concureent.concureencyPratice.chapterTwo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

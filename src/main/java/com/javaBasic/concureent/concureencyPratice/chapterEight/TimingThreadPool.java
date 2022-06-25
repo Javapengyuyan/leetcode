@@ -1,4 +1,4 @@
-package concureency.chapterEight;
+package com.javaBasic.concureent.concureencyPratice.chapterEight;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;

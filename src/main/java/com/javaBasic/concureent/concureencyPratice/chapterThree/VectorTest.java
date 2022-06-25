@@ -1,4 +1,4 @@
-package com.socket.concureency.chapterThree;
+package com.javaBasic.concureent.concureencyPratice.chapterThree;
 
 import java.util.Vector;
 
