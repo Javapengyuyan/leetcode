@@ -1,4 +1,4 @@
-package com.socket.concureency.chapterEight;
+package com.javaBasic.concureent.concureencyPratice.chapterEight;
 
 import com.algorithms.niuke.common.TreeNode;
 

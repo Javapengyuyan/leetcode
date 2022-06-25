@@ -1,4 +1,4 @@
-package com.socket.concureency.chapterSixtheen;
+package com.javaBasic.concureent.concureencyPratice.chapterSixtheen;
 
 public class PossibleReordering {
     static int x =0,y=0;

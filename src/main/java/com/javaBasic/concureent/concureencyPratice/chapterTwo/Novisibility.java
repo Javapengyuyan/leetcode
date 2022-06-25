@@ -1,4 +1,4 @@
-package concureency.chapterTwo;
+package com.javaBasic.concureent.concureencyPratice.chapterTwo;
 
 public class Novisibility {
 

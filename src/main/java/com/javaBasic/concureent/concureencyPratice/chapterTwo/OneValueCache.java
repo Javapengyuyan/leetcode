@@ -1,4 +1,4 @@
-package com.socket.concureency.chapterTwo;
+package com.javaBasic.concureent.concureencyPratice.chapterTwo;
 
 import java.math.BigInteger;
 import java.util.Arrays;
