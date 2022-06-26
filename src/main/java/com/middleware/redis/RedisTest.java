@@ -1,8 +1,6 @@
 package com.middleware.redis;
 
-import common.redis.RedisProvider;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * @author: long
@@ -12,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class RedisTest {
 
-    @Autowired
-    private RedisProvider redisProvider;
 
     @Test
     public  void test() {
