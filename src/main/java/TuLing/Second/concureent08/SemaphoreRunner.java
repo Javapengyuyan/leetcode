@@ -1,7 +1,5 @@
 package TuLing.Second.concureent08;
 
-import javafx.concurrent.Task;
-
 import java.util.concurrent.Semaphore;
 
 /**

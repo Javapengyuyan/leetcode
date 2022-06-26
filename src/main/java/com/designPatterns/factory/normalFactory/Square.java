@@ -1,6 +1,6 @@
-package com.designPatterns.factory;
+package com.designPatterns.factory.normalFactory;
 
-public class Square implements Shape{
+public class Square implements Shape {
     @Override
     public void draw() {
         System.out.println("insert draw square");

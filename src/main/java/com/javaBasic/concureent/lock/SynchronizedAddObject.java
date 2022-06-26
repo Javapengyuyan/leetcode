@@ -3,7 +3,7 @@ package com.javaBasic.concureent.lock;
 /**
  * @author: long
  * @create: 2022-05-04 16:27
- * @Description 测试synchronized关键字给对象加锁，解决上下文切换问题
+ * @Description 测试synchronized关键字给对象加锁，解决上下文切换问题--通过monitor实现
  *
  * 假如线程1用synchronized给对象加锁，线程2没有，则锁无效
  **/

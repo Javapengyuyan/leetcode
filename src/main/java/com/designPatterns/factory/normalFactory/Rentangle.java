@@ -1,6 +1,6 @@
-package com.designPatterns.factory;
+package com.designPatterns.factory.normalFactory;
 
-public class Rentangle implements Shape{
+public class Rentangle implements Shape {
     @Override
     public void draw() {
         System.out.println("insert into shape draw() method");

@@ -5,6 +5,8 @@ package com.javaBasic.concureent.lock;
  * @create: 2022-05-05 12:59
  * @Description  synchronized只能锁对象，加在方法上锁的是this对象，加在static方法上锁的是类对象
  *
+ * 通过ACC_SYNCHRONIZED
+ *
  **/
 
 public class SynchronizedAddMethod {

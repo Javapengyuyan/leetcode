@@ -1,4 +1,4 @@
-package com.designPatterns.factory;
+package com.designPatterns.factory.normalFactory;
 
 public class ShapeFactory {
 
