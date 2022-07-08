@@ -5,8 +5,10 @@ import com.niuke.mapper.ActiveUserMapper;
 import com.niuke.service.TranscationalServiceTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestClientException;
 
 import java.util.ArrayList;
 
@@ -19,6 +21,7 @@ import java.util.ArrayList;
  * Throwable是所有的父类，下包含error、exception两个。
  *      exception可以细分为IOException和RuntimeException。
  *
+ * Propagation、Mandatory
  **/
 
 @Service
@@ -70,12 +73,30 @@ public class TranscationalServiceTestImpl implements TranscationalServiceTest {
     @Transactional(rollbackFor = RuntimeException.class,propagation = Propagation.MANDATORY)
     protected void addTest(){
 
-
     }
     /**
-     * Propagation
-     * Mandatory
+     * 配置不回滚类型就不会回滚？？
+     */
+    @Transactional(rollbackFor = Exception.class,noRollbackFor = RestClientException.class)
+    public void noRollBack(){
+
+    }
+
+
+
+    /**
+     * 本质上其实是同一个概念,spring的事务是对数据库的事务的封装,最后本质的实现还是在数据库,
+     * 假如数据库不支持事务的话,spring的事务是没有作用的.数据库的事务说简单就只有开启,回滚和关闭,
+     * spring对数据库事务的包装,原理就是拿一个数据连接,根据spring的事务配置,操作这个数据连接对数
+     * 据库进行事务开启,回滚或关闭操作.但是spring除了实现这些,还配合spring的传播行为对事务进行了
+     * 更广泛的管理.其实这里还有个重要的点,那就是事务中涉及的隔离级别,以及spring如何对数据库的隔离
+     * 级别进行封装.事务与隔离级别放在一起理解会更好些
      *
      */
+    @Transactional(rollbackFor = RuntimeException.class,
+            propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT)
+    public void test(){
+
+    }
 
 }
