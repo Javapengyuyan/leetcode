@@ -77,7 +77,8 @@ public class TranscationalServiceTestImpl implements TranscationalServiceTest {
     /**
      * 配置不回滚类型就不会回滚？？
      */
-    @Transactional(rollbackFor = Exception.class,noRollbackFor = RestClientException.class)
+    @Transactional(rollbackFor = Exception.class,noRollbackFor = RestClientException.class
+    ,propagation = Propagation.MANDATORY)
     public void noRollBack(){
 
     }
@@ -85,7 +86,7 @@ public class TranscationalServiceTestImpl implements TranscationalServiceTest {
 
 
     /**
-     * 本质上其实是同一个概念,spring的事务是对数据库的事务的封装,最后本质的实现还是在数据库,
+     * spring的事务是对数据库的事务的封装,最后本质的实现还是在数据库,
      * 假如数据库不支持事务的话,spring的事务是没有作用的.数据库的事务说简单就只有开启,回滚和关闭,
      * spring对数据库事务的包装,原理就是拿一个数据连接,根据spring的事务配置,操作这个数据连接对数
      * 据库进行事务开启,回滚或关闭操作.但是spring除了实现这些,还配合spring的传播行为对事务进行了
