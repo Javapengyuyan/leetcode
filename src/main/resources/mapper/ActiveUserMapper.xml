@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.niuke.mapper.ActiveUserMapper" >
+
+  <resultMap id="BaseResultMap" type="com.niuke.entity.ActiveUser" >
+    <id column="mapping_id" property="mappingId" jdbcType="INTEGER" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="start_date" property="startDate" jdbcType="INTEGER" />
+    <result column="end_date" property="endDate" jdbcType="INTEGER" />
+    <result column="active_flag" property="activeFlag" jdbcType="INTEGER" />
+    <result column="group_name" property="groupName" jdbcType="CHAR" />
+    <result column="group_id" property="groupId" jdbcType="INTEGER"/>
+    <result column="group_name_en" property="groupNameEn" jdbcType="VARCHAR"/>
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+      mapping_id, product_name, user_id, product_id, start_date, end_date, active_flag,
+      group_name,group_id,group_name_en
+  </sql>
+
+  <sql id="Selective_Column_List" >
+    mapping_id, product_id, start_date, end_date,group_id,group_name,group_name_en,product_name
+  </sql>
+
+  <select id="selectByUserId" resultMap="BaseResultMap" >
+    select
+    <include refid="Selective_Column_List"/>
+    from (select <include refid="Selective_Column_List"/> from nk_active_user where user_id = #{userId,jdbcType=INTEGER} and active_flag=1 ORDER BY start_date DESC) as a
+    group by product_id
+  </select>
+
+  <select id="selectActivitedByUserId" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List"/>
+     from nk_active_user
+     where user_id = #{userId,jdbcType=INTEGER}
+     and active_flag=1
+     limit 1
+  </select>
+
+  <select id="selectActiveUserByGroupIdAndUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from nk_active_user
+    where active_flag=1 and user_id = #{userId,jdbcType=INTEGER} and group_id = #{groupId,jdbcType=INTEGER}
+  </select>
+
+
+  <select id="selectByProductIdAndUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from nk_active_user
+    where active_flag=1 and user_id = #{userId,jdbcType=INTEGER} and product_id = #{productId,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectServiceDate" resultType="map" >
+    select
+     start_date,end_date
+    from nk_active_user
+    where active_flag = 1
+    and user_id = #{userId,jdbcType=INTEGER}
+    <if test="productId != null">
+      and product_id = #{productId,jdbcType=INTEGER}
+    </if>
+    <if test="date != null">
+     and start_date &lt; #{date} and end_date &gt; #{date}
+    </if>
+    order by start_date desc limit 1
+  </select>
+
+  <select id="selectNewActive" resultMap="BaseResultMap" >
+    select
+    <include refid="Selective_Column_List"/>
+    from nk_active_user
+    where user_id = #{userId,jdbcType=INTEGER}
+    <if test="date != null">
+      and start_date &lt; #{date} and end_date &gt; #{date}
+    </if>
+    order by start_date desc limit 1
+  </select>
+
+
+
+
+  <select id="selectUserProduct" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List"/>
+    from nk_active_user
+    where user_id=#{userId} group by product_id
+  </select>
+
+  <select id="selectActiveUserlist" resultMap="BaseResultMap" parameterType="java.lang.Boolean">
+      SELECT product_name, product_id, start_date, end_date, active_flag,group_id,group_name,group_name_en,user_id FROM nk_active_user
+    <where>
+      <if test="activeOnly">
+        and active_flag=1
+      </if>
+        and user_id=#{uid}
+    </where>
+  </select>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from nk_active_user
+    where mapping_id = #{mappingId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from nk_active_user
+    where mapping_id = #{mappingId,jdbcType=INTEGER}
+  </delete>
+
+  <insert id="insert" parameterType="com.hzcj.finance.user.entity.ActiveUser" >
+      insert into nk_active_user (mapping_id, product_name, user_id,
+      product_id, start_date, end_date,
+      active_flag, group_name,group_id,group_name_en)
+      values (#{mappingId,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER},
+      #{productId,jdbcType=INTEGER}, #{startDate,jdbcType=INTEGER}, #{endDate,jdbcType=INTEGER},
+      #{activeFlag,jdbcType=INTEGER}, #{groupName,jdbcType=CHAR},#{groupId,jdbcType=INTEGER},#{groupNameEn,jdbcType=VARCHAR})
+  </insert>
+
+  <insert id="insertSelective" parameterType="com.hzcj.finance.user.entity.ActiveUser" >
+    insert into nk_active_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mappingId != null" >
+        mapping_id,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="activeFlag != null" >
+        active_flag,
+      </if>
+      <if test="groupName != null" >
+        group_name,
+      </if>
+      <if test="groupId != null">
+            group_id,
+      </if>
+      <if test="groupNameEn != null">
+        group_name_en
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mappingId != null" >
+        #{mappingId,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=INTEGER},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=INTEGER},
+      </if>
+      <if test="activeFlag != null" >
+        #{activeFlag,jdbcType=INTEGER},
+      </if>
+      <if test="groupName != null" >
+        #{groupName,jdbcType=CHAR},
+      </if>
+      <if test="groupId != null">
+            #{groupId,jdbcType=VARCHAR},
+      </if>
+      <if test="groupNameEn != null">
+            #{groupNameEn,jdbcType=VARCHAR}
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.hzcj.finance.user.entity.ActiveUser" >
+    update nk_active_user
+    <set >
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=INTEGER},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=INTEGER},
+      </if>
+      <if test="activeFlag != null" >
+        active_flag = #{activeFlag,jdbcType=INTEGER},
+      </if>
+      <if test="groupName != null" >
+        group_name = #{groupName,jdbcType=CHAR},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="groupNameEn != null">
+        group_name_en = #{groupNameEn,jdbcType=VARCHAR}
+      </if>
+    </set>
+    where mapping_id = #{mappingId,jdbcType=INTEGER}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.hzcj.finance.user.entity.ActiveUser" >
+    update nk_active_user
+    set product_name = #{productName,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER},
+      start_date = #{startDate,jdbcType=INTEGER},
+      end_date = #{endDate,jdbcType=INTEGER},
+      active_flag = #{activeFlag,jdbcType=INTEGER},
+      group_name = #{groupName,jdbcType=CHAR},
+      group_id = #{groupId,jdbcType=INTEGER},
+      group_name_en = #{groupNameEn,jdbcType=VARCHAR}
+    where mapping_id = #{mappingId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByProductId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select * from nk_active_user
+    where product_id = #{productId} and active_flag = 1
+  </select>
+
+</mapper>

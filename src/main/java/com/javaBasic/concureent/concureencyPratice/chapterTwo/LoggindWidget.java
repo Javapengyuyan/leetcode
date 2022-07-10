@@ -1,4 +1,4 @@
-package concureency.chapterTwo;
+package com.javaBasic.concureent.concureencyPratice.chapterTwo;
 
 /**
  *  如果内置锁不可重入锁，则会导致代码永久死锁。

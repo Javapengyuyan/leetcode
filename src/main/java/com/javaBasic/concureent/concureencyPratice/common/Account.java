@@ -1,4 +1,4 @@
-package com.socket.concureency.common;
+package com.javaBasic.concureent.concureencyPratice.common;
 
 public class Account {
 
