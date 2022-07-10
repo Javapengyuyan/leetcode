@@ -1,4 +1,4 @@
-package com.MQ;
+package com.middleware.MQ;
 
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;

@@ -17,10 +17,10 @@ public class MyAdvie {
 
     private Logger logger = LoggerFactory.getLogger(MyAdvie.class);
 
-    @Pointcut(value = "execution(com.quan.controller.*.*(..)")
+    //@Pointcut(value = "execution(* com.quan.controller.*(..))")
     public void myPointcut(){}
 
-    @Around("myPointcut()")
+    //@Around("myPointcut()")
     public Object mylogger(ProceedingJoinPoint pjp) throws Throwable {
         String className = pjp.getTarget().getClass().toString();
         String methodName = pjp.getSignature().getName();
