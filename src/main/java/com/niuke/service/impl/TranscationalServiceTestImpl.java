@@ -51,6 +51,25 @@ public class TranscationalServiceTestImpl implements TranscationalServiceTest {
         arrayList.add("aa");
     }
 
+    /**
+     * 事务实现原理：以及非事务调用事务不生效原因：
+     *
+     * spring 在扫描bean的时候会扫描方法上是否包含@Transactional 事务注解，如果包含，
+     * 则 spring会为这个bean动态地生成一个子类（即代理类，proxy），代理类是继承原来那个bean。
+     *
+     * 当这个有事务注解的方法被调用的时候，实际上是由代理类来调用的，代理类在调用之前就会开启事务
+     * （transaction） 。
+     *
+     * 但是，如果先调用一个没有事务的方法，然通这个方法再去有事务，由于该方法的调用并没有通过代理类，
+     * 而是直接通过原来的那个bean，所以就不会启动transaction，我们看到的现象就是 @Transactional
+     * 注解无效。
+     *
+     * 总结：
+     * 同一个类中，一个没有事务的方法A，去调用另一个有事务的方法B时，因为是直接调用，
+     * 而不是调用的代理类，所以事务不起用的。
+     *
+     */
+
     @Transactional(rollbackFor = RuntimeException.class)
     public void noTransacl(){
         ActiveUser activeUser = new ActiveUser();
@@ -98,6 +117,41 @@ public class TranscationalServiceTestImpl implements TranscationalServiceTest {
             propagation = Propagation.REQUIRED,isolation = Isolation.DEFAULT)
     public void test(){
 
+    }
+
+    /**
+     * 1、rollbackFor的异常要和throws一样
+     * @throws Exception
+     */
+    @Transactional(rollbackFor = RuntimeException.class)
+    public void testThrow() throws Exception {
+        ActiveUser activeUser = new ActiveUser();
+        activeUser.setUserId(191);
+        activeUser.setGroupName("测试");
+        activeUser.setGroupNameEn("");
+        activeUserMapper.updateByPrimaryKey(activeUser);
+        throw new Exception("Exception抛出异常");
+    }
+
+    /**
+     * 也可以写多个Exception
+     */
+    @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
+    public void testTwoException(){
+        throw new RuntimeException("RuntimeException");
+    }
+
+    /**
+     * try catch后不会回滚
+     *
+     */
+    @Transactional
+    public void testTryCatch(){
+        try {
+            System.out.println("输出");
+        }catch (Exception e){
+
+        }
     }
 
 }
