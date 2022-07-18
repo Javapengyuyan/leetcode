@@ -1,6 +1,7 @@
 package com.spring.circularDependency;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,16 +10,17 @@ import org.springframework.stereotype.Component;
  * @Description
  **/
 @Component
-public class ClassB {
+@Scope("prototype")
+public class InstanceB {
 
     @Autowired
-    private ClassA classA;
+    private InstanceA classA;
 
-    public ClassA getClassA() {
+    public InstanceA getClassA() {
         return classA;
     }
 
-    public void setClassA(ClassA classA) {
+    public void setClassA(InstanceA classA) {
         this.classA = classA;
     }
 }

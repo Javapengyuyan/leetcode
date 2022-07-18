@@ -1,6 +1,7 @@
 package com.spring.circularDependency;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -11,17 +12,18 @@ import javax.annotation.Resource;
  * @Description 循环依赖问题
  **/
 @Component
-public class ClassA {
+@Scope(value = "prototype")//不使用Scope注解则bean为单例，使用Scope指定prototype则为多实例，且为懒汉模式加载。
+public class InstanceA {
 
     @Autowired
     @Resource
-    private ClassB classB;
+    private InstanceB classB;
 
-    public ClassB getClassB() {
+    public InstanceB getClassB() {
         return classB;
     }
 
-    public void setClassB(ClassB classB) {
+    public void setClassB(InstanceB classB) {
         this.classB = classB;
     }
 }
