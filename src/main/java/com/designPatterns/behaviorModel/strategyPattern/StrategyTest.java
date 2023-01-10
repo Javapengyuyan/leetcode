@@ -9,7 +9,10 @@ package com.designPatterns.behaviorModel.strategyPattern;
 public class StrategyTest {
 
     public static void main(String[] args) {
-
+        //交给客户端选择
+        ConcreteStrategyA concreteStrategyA = new ConcreteStrategyA();
+        Context context = new Context(concreteStrategyA);
+        context.contextInter();
 
     }
 
