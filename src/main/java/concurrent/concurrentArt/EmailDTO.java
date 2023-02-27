@@ -7,7 +7,4 @@ package concurrent.concurrentArt;
  **/
 
 public class EmailDTO {
-    public void t(){
-
-    }
 }
