@@ -122,6 +122,21 @@ public class StreamDemo {
                 .collect(Collectors.toList());
         System.out.println(collect);
 
+        //List<Integer> collect = studentList.stream().map(Integer::parseInt).collect(Collectors.toList());
+        List<Integer> ageList = studentList.stream().map(Student::getAge).collect(Collectors.toList());
+
+
+    }
+
+    public static void test(){
+        List<Integer> integerList = Arrays.asList(3, 1, 5, 8);
+        integerList.stream()
+               .sorted()
+               .forEach(i-> System.out.println(i));
+        //3.2、sort。倒序输出
+        integerList.stream().
+                sorted(Comparator.reverseOrder())
+               .forEach(i-> System.out.println(i));
     }
 
 }

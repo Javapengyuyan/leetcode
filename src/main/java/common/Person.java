@@ -1,6 +1,5 @@
 package common;
 
-import TuLing.First.A;
 import lombok.Data;
 
 /**

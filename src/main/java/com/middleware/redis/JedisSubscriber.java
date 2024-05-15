@@ -12,11 +12,20 @@ import redis.clients.jedis.JedisPubSub;
 @Slf4j
 public class JedisSubscriber extends JedisPubSub {
 
+    public JedisSubscriber(){
+
+    }
+
     @Override
     public void onMessage(String channel, String message) {
-        log.info("redis发布订阅");
+        log.info("redis发布订阅收到消息，channel:{},message:{}",channel,message);
         if (StringUtils.isNotBlank(message)){
 
         }
+    }
+
+    @Override
+    public void onSubscribe(String channel, int subscribedChannels){
+
     }
 }

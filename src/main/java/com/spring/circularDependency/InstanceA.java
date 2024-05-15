@@ -1,6 +1,5 @@
 package com.spring.circularDependency;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +14,6 @@ import javax.annotation.Resource;
 @Scope(value = "prototype")//不使用Scope注解则bean为单例，使用Scope指定prototype则为多实例，且为懒汉模式加载。
 public class InstanceA {
 
-    @Autowired
     @Resource
     private InstanceB classB;
 

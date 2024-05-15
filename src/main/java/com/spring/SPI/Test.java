@@ -1,6 +1,6 @@
 package com.spring.SPI;
 
-import sun.misc.Service;
+//import sun.misc.Service;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;
@@ -18,13 +18,13 @@ import java.util.ServiceLoader;
 
 public class Test {
     public static void main(String[] args) {
-        Iterator<SPIService> providers = Service.providers(SPIService.class);
+        //Iterator<SPIService> providers = Service.providers(SPIService.class);
         ServiceLoader<SPIService> load = ServiceLoader.load(SPIService.class);
 
-        while (providers.hasNext()){
+        /*while (providers.hasNext()){
             SPIService spiService = providers.next();
             spiService.execute();
-        }
+        }*/
         System.out.println("----------------------");
         Iterator<SPIService> serviceIterator = load.iterator();
         while (serviceIterator.hasNext()){

@@ -12,8 +12,8 @@ public class Substring {
      * 解法：滑动窗口 设置双指针，left。right，修改右边指针，逐渐移动达到目标后，移动左边指针
      * 额外空间记录移动数据是否符合
      * 时间复杂度：O(m+n)，两个字符串的长度。
-     * @param
-     * @return
+     * @param s 入参
+     * @return 返回结果
      */
     static public int lengthOfLongestSubstring(String s) {
         if (Strings.isBlank(s)){

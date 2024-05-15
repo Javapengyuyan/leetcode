@@ -1,6 +1,6 @@
 package com.javaBasic.concureent;
 
-import jdk.nashorn.internal.ir.annotations.Reference;
+//import jdk.nashorn.internal.ir.annotations.Reference;
 
 import java.io.FileReader;
 import java.util.concurrent.*;
@@ -10,6 +10,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author: long
  * @create: 2022-04-08 20:08
  * @Description
+ *
+ * 618优惠券抢购、周年庆活动、送礼品
  **/
 
 public class Test {

@@ -3,6 +3,9 @@ package com.javaBasic.javaSE.genericT.demo6;
 import com.javaBasic.javaSE.genericT.ProductGetter;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author: long
