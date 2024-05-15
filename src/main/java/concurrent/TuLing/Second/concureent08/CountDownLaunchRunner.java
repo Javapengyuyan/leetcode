@@ -1,4 +1,4 @@
-package TuLing.Second.concureent08;
+package concurrent.TuLing.Second.concureent08;
 
 import java.util.concurrent.CountDownLatch;
 
